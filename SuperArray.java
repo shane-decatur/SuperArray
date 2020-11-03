@@ -25,4 +25,9 @@ public class SuperArray{
     data[index] = element;
     return data[index];
   }
+
+  public void resize(){
+    String[] arr;
+    
+  }
 }
