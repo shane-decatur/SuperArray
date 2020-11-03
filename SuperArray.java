@@ -23,13 +23,13 @@ public class SuperArray{
   }
 
   public String set(int index, String element){
+    String tempElement = data[index];
     data[index] = element;
-    return data[index];
+    return tempElement;
   }
 
   public void resize(){
-    String[] arr;
-    arr = new String[data.length + 10];
+    String[] arr =  new String[data.length + 10];
     for (int i = 0; i < data.length; i++){
       arr[i] = data[i];
     }
