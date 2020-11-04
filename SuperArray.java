@@ -24,10 +24,7 @@ public class SuperArray{
   }
 
   public String get(int index){
-    if (data[index] != null){
-      return data[index];
-    }
-    return "";
+    return data[index];
   }
 
   public String set(int index, String element){
@@ -49,8 +46,10 @@ public class SuperArray{
   }
 
   public void clear(){
+    for (int i = 0; i < size; i++){
+      data[i] = null;
+    }
     size = 0;
-    data = new String[10];
   }
 
   public String toString(){
@@ -71,4 +70,19 @@ public class SuperArray{
     return false;
   }
 
+  public void add(int index, String element){
+    if (size >= data.length) resize();
+    String[] tempArr = new String[size-index];
+    int tempIndex = 0;
+    for (int i = index; i < size; i++){
+      tempArr[tempIndex] = data[i];
+      data[i] = null;
+      size--;
+      tempIndex++;
+    }
+    add(element);
+    for (int i = 0; i < tempArr.length; i++){
+      add(tempArr[i]);
+    }
+  }
 }
