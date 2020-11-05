@@ -24,7 +24,10 @@ public class SuperArray{
   }
 
   public String get(int index){
-    return data[index];
+    if (data[index] != null) {
+        return data[index];
+    }
+    return "";
   }
 
   public String set(int index, String element){
@@ -57,7 +60,8 @@ public class SuperArray{
     for (int i = 0; i < size-1; i++){
       strData += data[i] + ", ";
     }
-    strData += data[size-1] + "]";
+    if (size > 0) strData += data[size-1] + "]";
+    else strData += "]";
     return strData;
   }
 
@@ -72,7 +76,7 @@ public class SuperArray{
 
   public void add(int index, String element){
     if (size >= data.length) resize();
-    for (int i = size; i > index; i--){
+    for (int i = size+1; i > index; i--){
       data[i] = data[i-1];
     }
     data[index] = element;
@@ -81,15 +85,17 @@ public class SuperArray{
   public String remove(int index){
     String returnVal = data[index];
     for (int i = index; i < size - 1; i++) {
-      data[i] = data[i+1];
+      data[size - 1] = null;
+      size--;
     }
-    data[size - 1] = null;
     return returnVal;
   }
 
   public int indexOf(String s){
     for (int i = 0; i < size; i++){
-      if (data[i].equals(s)) return i;
+      if (data[i].equals(s)) {
+        return i;
+      }
     }
     return -1;
   }
