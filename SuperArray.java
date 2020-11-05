@@ -80,6 +80,7 @@ public class SuperArray{
       data[i] = data[i-1];
     }
     data[index] = element;
+    size++;
   }
 
   public String remove(int index){
