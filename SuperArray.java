@@ -28,6 +28,14 @@ public class SuperArray{
   }
 
   public String get(int index){
+    if (index < 0){
+      throw new IndexOutOfBoundsException("Index " + index
+        + " cannot be negative");
+    }
+    if (index >= size){
+      throw new IndexOutOfBoundsException("Index " + index
+        + " is greater than size of SuperArray");
+    }
     if (data[index] != null) {
         return data[index];
     }
