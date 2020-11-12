@@ -34,7 +34,7 @@ public class SuperArray{
     }
     if (index >= size){
       throw new IndexOutOfBoundsException("Index " + index
-        + " is greater than size of SuperArray");
+        + " cannot be greater than size of SuperArray");
     }
     if (data[index] != null) {
         return data[index];
@@ -43,6 +43,14 @@ public class SuperArray{
   }
 
   public String set(int index, String element){
+    if (index < 0){
+      throw new IndexOutOfBoundsException("Index " + index
+        + " cannot be negative");
+    }
+    if (index >= size){
+      throw new IndexOutOfBoundsException("Index " + index
+        + " cannot be greater than size of SuperArray");
+    }
     String tempElement = data[index];
     data[index] = element;
     return tempElement;
