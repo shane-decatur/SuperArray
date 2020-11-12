@@ -95,6 +95,14 @@ public class SuperArray{
   }
 
   public void add(int index, String element){
+    if (index < 0){
+      throw new IndexOutOfBoundsException("Index " + index
+        + " cannot be negative");
+    }
+    if (index > size){
+      throw new IndexOutOfBoundsException("Index " + index
+        + " cannot be greater than size of SuperArray");
+    }
     if (size >= data.length) resize();
     for (int i = size+1; i > index; i--){
       data[i] = data[i-1];
