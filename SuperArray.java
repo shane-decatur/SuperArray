@@ -29,12 +29,12 @@ public class SuperArray{
 
   public String get(int index){
     if (index < 0){
-      throw new IndexOutOfBoundsException("Index " + index
-        + " cannot be negative");
+      throw new IndexOutOfBoundsException("Cannot get value with index "+index
+        +"; index cannot be negative");
     }
     if (index >= size){
-      throw new IndexOutOfBoundsException("Index " + index
-        + " cannot be greater than size of SuperArray");
+      throw new IndexOutOfBoundsException("Cannot get value with index " + index
+        + "; index cannot be greater than size of SuperArray");
     }
     if (data[index] != null) {
         return data[index];
@@ -44,12 +44,12 @@ public class SuperArray{
 
   public String set(int index, String element){
     if (index < 0){
-      throw new IndexOutOfBoundsException("Index " + index
-        + " cannot be negative");
+      throw new IndexOutOfBoundsException("Cannot set value with index" + index
+        + "; index cannot be negative");
     }
     if (index >= size){
-      throw new IndexOutOfBoundsException("Index " + index
-        + " cannot be greater than size of SuperArray");
+      throw new IndexOutOfBoundsException("Cannot set value with index " + index
+        + "; index cannot be greater than size of SuperArray");
     }
     String tempElement = data[index];
     data[index] = element;
@@ -96,12 +96,12 @@ public class SuperArray{
 
   public void add(int index, String element){
     if (index < 0){
-      throw new IndexOutOfBoundsException("Index " + index
-        + " cannot be negative");
+      throw new IndexOutOfBoundsException("Cannot add to index " + index
+        + "; index cannot be negative");
     }
     if (index > size){
-      throw new IndexOutOfBoundsException("Index " + index
-        + " cannot be greater than size of SuperArray");
+      throw new IndexOutOfBoundsException("Cannot add to index " + index
+        + "; index cannot be greater than size of SuperArray");
     }
     if (size >= data.length) resize();
     for (int i = size+1; i > index; i--){
@@ -112,6 +112,14 @@ public class SuperArray{
   }
 
   public String remove(int index){
+    if (index < 0){
+      throw new IndexOutOfBoundsException("Cannot remove from index " + index
+        + "; index cannot be negative");
+    }
+    if (index >= size){
+      throw new IndexOutOfBoundsException("Cannot remove from index " + index
+        + "; index cannot be greater than size of SuperArray");
+    }
     String returnVal = data[index];
     for (int i = index; i < size - 1; i++) {
       data[i] = data[i+1];
