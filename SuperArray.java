@@ -103,7 +103,7 @@ public class SuperArray{
       throw new IndexOutOfBoundsException("Cannot add to index " + index
         + "; index cannot be greater than size of SuperArray");
     }
-    if (size >= data.length) resize();
+    if (size >= data.length - 1) resize();
     for (int i = size+1; i > index; i--){
       data[i] = data[i-1];
     }
